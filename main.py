@@ -23,9 +23,9 @@ def create_connection():
 def insert_data(connection, name, age, result):
     try:
         cursor = connection.cursor()
-        query = f"INSERT INTO students (name, age, grade) VALUES ({name}, {age}, {result})"
-        # values = (name, age, result)
-        cursor.execute(query)
+        query = f"INSERT INTO students (name, age, grade) VALUES (%s, %s, %s)"
+        values = (name, age, result)
+        cursor.execute(query, values)
         connection.commit()
         st.success("Data added successfully")
     except Error as e:
