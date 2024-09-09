@@ -1,3 +1,7 @@
+### Clone the repository
+
+    git clone https://github.com/dharanigowthamsampath/nit
+
 ### Create a Virtual Environment
 
     python -m venv venv
