@@ -2,6 +2,10 @@
 
     git clone https://github.com/dharanigowthamsampath/nit
 
+### Change the root directory
+
+    cd nit
+
 ### Create a Virtual Environment
 
     python -m venv venv
