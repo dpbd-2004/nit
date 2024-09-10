@@ -1,2 +1,8 @@
 .venv
+<<<<<<< HEAD
 venv
+=======
+venv
+
+django_app.db
+>>>>>>> 27fdc69cc5dd40c1f6f1ca0a5477ba8d1f443cb0

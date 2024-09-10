@@ -2,6 +2,9 @@ import streamlit as st
 import sqlite3
 from sqlite3 import Error
 
+with st.sidebar:
+    st.subheader("10.10.37.59:8501")
+
 # Function to create a SQLite connection
 def create_connection():
     try:
@@ -57,7 +60,12 @@ if st.button("Add"):
             conn.close()
     else:
         st.warning("Please fill in all the details")
+<<<<<<< HEAD
     
+=======
+
+
+>>>>>>> 27fdc69cc5dd40c1f6f1ca0a5477ba8d1f443cb0
 conn = create_connection()
 cursor = conn.cursor()
 cursor.execute("select * from students")
@@ -65,6 +73,7 @@ data = cursor.fetchall()
 conn.close()
 st.data_editor(data)
 
+<<<<<<< HEAD
 
 
 st.title("update")
@@ -96,3 +105,32 @@ if st.button("delete"):
             st.rerun()
     except Error as e:
         st.error(f"Error: '{e}'")
+=======
+st.title("Update")
+id_select = st.number_input("Enter the ID")
+name_change = st.text_input("Enter the name")
+
+if st.button("Update"):
+    try:
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute(f"update students set name='{name_change}' where id={id_select};")
+        conn.commit()
+        conn.close()
+        st.rerun()
+    except Error as e:
+        st.error(f"Error: '{e}'")
+
+st.title("Delete")
+delete_id = st.number_input("Enter the id to delete")
+if st.button("Delete"):
+    try:
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute(f"delete from students where id={delete_id};")
+        conn.commit()
+        conn.close()
+        st.rerun()
+    except Error as e:
+        st.error(f"Error: '{e}'")
+>>>>>>> 27fdc69cc5dd40c1f6f1ca0a5477ba8d1f443cb0
