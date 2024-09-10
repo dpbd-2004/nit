@@ -57,3 +57,39 @@ if st.button("Add"):
             conn.close()
     else:
         st.warning("Please fill in all the details")
+
+
+conn = create_connection()
+cursor = conn.cursor()
+cursor.execute("select * from students")
+data = cursor.fetchall()
+conn.close()
+st.data_editor(data)
+
+st.title("Update")
+id_select = st.number_input("Enter the ID")
+name_change = st.text_input("Enter the name")
+
+if st.button("Update"):
+    try:
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute(f"update students set name='{name_change}' where id={id_select};")
+        conn.commit()
+        conn.close()
+        st.rerun()
+    except Error as e:
+        st.error(f"Error: '{e}'")
+
+st.title("Delete")
+delete_id = st.number_input("Enter the id to delete")
+if st.button("Delete"):
+    try:
+        conn = create_connection()
+        cursor = conn.cursor()
+        cursor.execute(f"delete from students where id={delete_id};")
+        conn.commit()
+        conn.close()
+        st.rerun()
+    except Error as e:
+        st.error(f"Error: '{e}'")
