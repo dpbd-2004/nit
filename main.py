@@ -1,4 +1,6 @@
-# pip install
+# MySQL DB should be installed
+# You should have a DB with name django_app
+# You should have a table name with students with name, age and grade as a column name
 
 import streamlit as st
 import mysql.connector
