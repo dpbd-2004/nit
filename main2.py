@@ -2,6 +2,9 @@ import streamlit as st
 import sqlite3
 from sqlite3 import Error
 
+with st.sidebar:
+    st.subheader("10.10.37.59:8501")
+
 # Function to create a SQLite connection
 def create_connection():
     try:
