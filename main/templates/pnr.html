@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Calculate Simple Interest</h1>
+  <form method="post">
+      {% csrf_token %}
+      <label for="p">Principal Amount:</label>
+      <input type="text" name="p" id="p" required /><br /><br />
+      <label for="n">Number of Years:</label>
+      <input type="text" name="n" id="n" required /><br /><br />
+      <label for="r">Rate of interest:</label>
+      <input type="text" name="r" id="r" required /><br /><br />
+      <input type="submit" value="Calculate" />
+  </form>
+
+  {% if error %}
+  <p style="color : red">{{ error }}</p>
+  {% endif %} {% if result %}
+  <p style="color : green">{{ result }}</p>
+  {% endif %}
+</body>
+</html>
